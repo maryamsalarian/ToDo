@@ -5,11 +5,11 @@ This is a simple yet powerful application built with **React**, **Vite**, and **
 
 ## Features
 
-Add Tasks: Easily add tasks in an intuitive and user-friendly interface.
-Mark Tasks as Done: Cross off tasks when they're completed. Changed your mind? No worries! You can reverse this action.
-Edit Tasks: Quickly edit tasks when necessary.
-Delete Tasks: Remove tasks from your list when they're no longer needed.
-
+Add Tasks: Easily add tasks in an intuitive and user-friendly interface.<br/>
+Mark Tasks as Done: Cross off tasks when they're completed. Changed your mind? No worries! You can reverse this action.<br/>
+Edit Tasks: Quickly edit tasks when necessary.<br/>
+Delete Tasks: Remove tasks from your list when they're no longer needed.<br/>
+<br/>
 Please note that due to time constraints, unit tests were not implemented. However, feel free to explore and play around with the app.
 
 ## Setup
