@@ -1,6 +1,6 @@
 # To-Do List App
 
-Welcome to To-Do List!<br/>
+Welcome to To-Do List!<br/><br/>
 This is a simple yet powerful application built with **React**, **Vite**, and **Typescript**. The app allows you to create, edit, mark as done (or undone), and delete tasks, all while storing your data in local storage.
 
 ## Features
