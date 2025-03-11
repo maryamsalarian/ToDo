@@ -1,6 +1,7 @@
 import React, {Dispatch, SetStateAction, useState} from 'react'
 import TodoService from '../TodoService'
 import TodoTypes from '../todo'
+import classes from '../CSS/TodoForm.module.css'
 
 interface PropTypes {
     setTodos : Dispatch<SetStateAction<TodoTypes[]>>
@@ -18,7 +19,7 @@ const TodoForm:React.FC<PropTypes> = ({setTodos}) => {
      }
     return (
         
-        <div className="inputForm"> 
+        <div className={classes.inputForm}> 
         <input type="text" value={newTodoText}
         onChange = {(e) => setNewTodoText(e.target.value)}
         autoFocus = {true}

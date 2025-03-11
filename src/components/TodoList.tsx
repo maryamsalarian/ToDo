@@ -6,6 +6,7 @@ import { GiCancel } from "react-icons/gi";
 import { RiDeleteBin5Fill } from "react-icons/ri";
 import { MdCheckCircle, MdUndo } from "react-icons/md";
 import TodoForm from "./TodoForm";
+import classes from "../CSS/TodoList.module.css"
 
 const TodoList = () => {
     const [todos, setTodos] = useState<TodoTypes[]>(TodoService.getTodos());
@@ -18,13 +19,13 @@ const TodoList = () => {
         setEditedTodoText(text);
     };
 
-    const handleEditCancellation = () => {
+    const handleEditCancellation = () => { 
         setEditedTodoId(null);
         setEditedTodoText("");
     };
 
     const handleEditSave = (id: number) => {
-        if (editedTodoText.trim() !== '') {
+        if (editedTodoText.trim() !== "") {
             const editTodo = TodoService.editTodo({
                 id,
                 text: editedTodoText,
@@ -51,32 +52,38 @@ const TodoList = () => {
         );
     };
 
-    return <div className="todoContainer">
+    return <div className={classes.todoContainer}>
 
         <div>
-            input from component goes here
             <TodoForm setTodos = {setTodos}/>
         </div>
 
         {todos.map((t) => (
-            <div className="items" key={t.id}>
+            <div className={classes.items} key={t.id}>
+
+                <button className={`${classes.toggleBtn} ${t.completed ? classes.completed : ""}`} onClick={() => handleToggle(t.id)}>
+                    {t.completed ? <MdUndo /> : <MdCheckCircle />}
+                </button>
+
                 {editingTodoId == t.id ? (
-                    <div className="editedText">
+                    <div className={classes.editedText}>
 
                         <input type="text" value={editedTodoText} onChange={(e) => setEditedTodoText(e.target.value)} autoFocus={true} />
 
-                        <button className="saveBtn" onClick={() => handleEditSave(t.id)}>
+                        <button className={classes.saveBtn} onClick={() => handleEditSave(t.id)}>
                             <FaCheck />
                         </button>
 
-                        <button className="cancelBtn" onClick={() => handleEditCancellation()}>
+                        <button className={classes.cancelBtn} onClick={() => handleEditCancellation()}>
                             <GiCancel />
                         </button>
 
                     </div>
                 ) : (
-                    <div className="editBtn">
-                        <span>{t.text}</span>
+                    <div className={classes.editBtn}>
+                        <span className={`${classes.taskText} ${t.completed ? classes.completedTask : ""}`}>
+                            {t.text}
+                        </span>
 
                         <button onClick={() => handleEditStart(t.id, t.text)}>
                             <FaEdit />
@@ -84,23 +91,8 @@ const TodoList = () => {
 
                     </div>
                 )}
-
-                <button className="toggleBtn" onClick={() => handleToggle(t.id)}>
-                    {t.completed ? <MdUndo /> : <MdCheckCircle />}
-                </button>
-
-                {/*CSS effect
-                .completed-task {
-                text-decoration: line-through;
-                opacity: 0.6; /* Optional: Makes completed tasks slightly faded 
-                Dynamic CSS Class for Strikethrough
-
-The <span> containing the task text checks t.completed and applies "completed-task" when true.
-The "completed-task" class uses CSS text-decoration: line-through to visually show the completed state.
                 
-                */}
-
-                <button className="deleteBtn" onClick={() => handleDelete(t.id)}>
+                <button className={classes.deleteBtn} onClick={() => handleDelete(t.id)}>
                     <RiDeleteBin5Fill />
                 </button>
 

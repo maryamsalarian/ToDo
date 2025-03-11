@@ -1,0 +1,80 @@
+.items {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 1px 1px 4px -2px rgb(147, 87, 224);
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    font-family: "Poppins", sans-serif;
+    transition: all .3s ease-in-out;
+}
+
+.items:hover {
+    box-shadow: 1px 1px 6px -1px blue;
+    cursor: pointer;
+}
+
+.toggleBtn {
+    margin: 5px;
+    color: green;
+}
+
+.completed {
+    color: red;
+}
+
+.completedTask {
+    text-decoration: line-through;
+    opacity: 0.6;
+}
+
+.editText {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.editText>button {
+    margin: 10px;
+    display: flex;
+}
+
+.editText>input {
+    border: none;
+    border-radius: 50px;
+    background: transparent;
+    padding: 10px;
+    box-shadow: 1px 1px 5px -2px red;
+    margin: 0 10px;
+}
+
+
+button {
+    cursor: pointer;
+    background: transparent;
+}
+
+.editBtn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex: 1;
+    margin: 10px;
+}
+
+.editBtn>span {
+    display: flex;
+    align-items: center;
+    margin-right: 10px
+}
+
+.deleteBtn {
+    color: red;
+}
+
+/* Scrollbar styles */
+.todos::-webkit-scrollbar {
+    width: 12px;
+    /* Set the width of the scrollbar */
+}
